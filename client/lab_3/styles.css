@@ -43,13 +43,13 @@
   font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’, ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
   margin:10px;
 }
-.section {
+/*.section {
   width: 100%;
   height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+}*/
 
 .menu-container {
   color: #fff;
@@ -85,8 +85,8 @@
 }
 
 .header {
-  /*width: 900px;
-  height: 300px;*/
+  width: 900px;
+  height: 300px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -102,10 +102,9 @@
 }
 
 .photo-grid {
-  /*width: 900px;*/
-  height: 600px;
+  width: 900px;
   display: flex;
-  justify-content: center;
+  justify-content: center;    /* Change this */
   flex-wrap: wrap;
   flex-direction: row-reverse;
   align-items: center;
@@ -113,8 +112,8 @@
 
 .photo-grid-item {
   border: 1px solid #fff;
-  /*width: 300px;
-  height: 300px;*/
+  width: 300px;
+  height: 300px;
 }
 .footer {
   display: flex;
