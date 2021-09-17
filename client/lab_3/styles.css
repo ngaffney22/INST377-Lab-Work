@@ -6,13 +6,9 @@
 .title {
   color: black;
   background-color: darkcyan;
-  height: 80px;
-
 }
 /* Page styles */
 .wrapper {
-  display: flex;
-  flex-wrap: wrap;
   font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’, ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
   margin:10px;
 }
