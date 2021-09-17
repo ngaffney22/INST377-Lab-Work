@@ -19,8 +19,15 @@
 
 /* Desktop Styles */
 @media only screen and (min-width: 961px) {
-  body {
-    background-color: white; /* Blue */
+  .page {
+    width: 960px;
+    margin: 0 auto;
+  }
+  .photo-grid-item{
+    width: 33.3%;
+  }
+  .header {
+    height: 400px;
   }
 }
 .title {
@@ -106,8 +113,8 @@
 
 .photo-grid-item {
   border: 1px solid #fff;
-  width: 300px;
-  height: 300px;
+  /*width: 300px;
+  height: 300px;*/
 }
 .footer {
   display: flex;
