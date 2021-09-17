@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+.title {
+  color: black;
+  background-color: darkcyan;
+
+}
 
 .menu-container {
   color: #fff;
