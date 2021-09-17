@@ -26,12 +26,22 @@
 .title {
   color: black;
   background-color: darkcyan;
+  height: 80px;
 
 }
 /* Page styles */
 .wrapper {
+  display: flex;
+  flex-wrap: wrap;
   font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’, ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
   margin:10px;
+}
+.section {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu-container {
@@ -68,8 +78,8 @@
 }
 
 .header {
-  width: 900px;
-  height: 300px;
+  /*width: 900px;
+  height: 300px;*/
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -85,7 +95,8 @@
 }
 
 .photo-grid {
-  width: 900px;
+  /*width: 900px;*/
+  height: 600px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
