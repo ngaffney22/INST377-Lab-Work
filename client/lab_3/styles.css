@@ -46,14 +46,11 @@
   justify-content: space-between;
   align-items: center;
 }
-.group-project {
+.group-project, .my-git {
   display: flex;
   align-self: flex-end;
 }
-.my-git {
-  display: flex;
-  align-self: flex-end;
-}
+
 .photo-grid-container {
   display: flex;
   justify-content: center;
