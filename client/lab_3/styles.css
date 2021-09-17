@@ -8,6 +8,11 @@
   background-color: darkcyan;
 
 }
+/* Page styles */
+.wrapper {
+  font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’, ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
+  margin:10px;
+}
 
 .menu-container {
   color: #fff;
