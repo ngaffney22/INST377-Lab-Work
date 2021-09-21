@@ -69,4 +69,5 @@
     width: 60px;
     height: 300px;
     position: absolute;
+    z-index: +1;
 }
