@@ -37,6 +37,17 @@ document.addEventListener('DOMContentLoaded' , () =>{
         gameDisplay.appendChild(obstacle)
         obstacle.style.left = obstacleLeft + 'px'
         obstacle.style.bottom = obstacleBottom + 'px'
+
+        function moveObstacle(){
+            obstacleLeft -= 2
+            obstacle.style.left = obstacleLeft + 'px'
+
+            if (obstacleLeft === -60){
+                crearInterval(timerId)
+                gameDisplay.removeChild(obstacle)
+            }
+        }
+        let timerId = setInterval(moveObstacle, 20)
     }
     generateObstacle()
     
