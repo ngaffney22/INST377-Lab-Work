@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded' , () =>{
             obstacle.style.left = obstacleLeft + 'px'
             topObstacle.style.left = obstacleLeft + 'px'
 
-            if (obstacleLeft === -80){
+            if (obstacleLeft === -60){
                 crearInterval(timerId)
                 gameDisplay.removeChild(obstacle)
                 gameDisplay.removeChild(topObstacle)
