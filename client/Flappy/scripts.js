@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded' , () =>{
     function generateObstacle(){
         const obstacle = document.createElement('div')
         obstacle.classList.add('obstacle')
+        gameDisplay.appendChild(obstacle )
     }
-
+    generateObstacle()
     
 })
