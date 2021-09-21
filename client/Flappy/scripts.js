@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded' , () =>{
                 gameDisplay.removeChild(obstacle)
             }
             if (
-                obstacleLeft > 200 && obstacleLeft === 220 &&
+                obstacleLeft > 200 && obstacleLeft < 280 && birdLeft === 220 &&
                 birdBottom < obstacleBottom + 153||
                 birdBottom === 0
                 ){
