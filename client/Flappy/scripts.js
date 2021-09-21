@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded' , () =>{
     function gameOver(){
         clearInterval(gameTimerId)
         isGameOver = true
-        document.removeEventListener(keyup, control)
+        document.removeEventListener('keyup', control)
     }
     
     
