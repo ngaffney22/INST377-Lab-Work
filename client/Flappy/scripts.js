@@ -19,4 +19,7 @@ document.addEventListener('DOMContentLoaded' , () =>{
         bird.style.bottom =  birdBottom + 'px'
     }
     document.addEventListener('keyup', jump)
+
+    timerId
+    
 })
