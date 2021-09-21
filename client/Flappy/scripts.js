@@ -20,6 +20,6 @@ document.addEventListener('DOMContentLoaded' , () =>{
     }
     document.addEventListener('keyup', jump)
 
-    timerId
+    timerId()
     
 })
