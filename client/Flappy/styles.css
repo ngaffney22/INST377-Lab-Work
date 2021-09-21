@@ -2,6 +2,18 @@
     height: 730px;
     width: 500px;
     position: absolute;
+    left: 80px;
+}
+.body{
+    display: flex;
+}
+
+.boarder-left{
+    width: 80px;
+    height: 790px;
+    position: absolute;
+    background-color: white;
+    z-index: +2;
 }
 
 .sky{
@@ -17,6 +29,7 @@
     width: 500px;
     position: absolute;
     top: 580px;
+    z-index: +1;
 }
 .bird{
     background-image: url('./images/flappy-bird.png');
