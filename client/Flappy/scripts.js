@@ -27,5 +27,11 @@ document.addEventListener('DOMContentLoaded' , () =>{
     }
     document.addEventListener('keyup', jump)
 
+
+    function generateObstacle(){
+        const obstacle = document.createElement('div')
+        obstacle.classList.add('obstacle')
+    }
+
     
 })
