@@ -1,0 +1,19 @@
+.game-conatainer{
+    height: 730px;
+    width: 500px;
+    position: absolute;
+}
+
+.sky{
+    background-color: cornflowerblue;
+    width: 500px;
+    height: 580px;
+    position: absolute;
+}
+
+.ground{
+    background-color: saddlebrown;
+    height: 150px;
+    width: 500px;
+    position: absolute;
+}
