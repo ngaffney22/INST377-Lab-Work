@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded' , () =>{
         bird.style.bottom =  birdBottom + 'px'
         console.log(birdBottom)
     }
-    document.addEventListener('keyup', jump)
+    document.addEventListener('keyup', control)
 
 
     function generateObstacle(){
@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded' , () =>{
             }
         }
         let timerId = setInterval(moveObstacle, 20)
+        setTimeout(generateObstacle, 3000)
     }
     generateObstacle()
     
