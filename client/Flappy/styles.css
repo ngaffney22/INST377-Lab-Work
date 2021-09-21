@@ -5,14 +5,14 @@
 }
 
 .sky{
-    background-color: cornflowerblue;
+    background-image: url('./images/fb-game-background.png');
     height: 580px;
     width: 500px;
     position: absolute;
 }
 
 .ground{
-    background-color: saddlebrown;
+    background-image: url('./images/bottom-background.png');
     height: 150px;
     width: 500px;
     position: absolute;
