@@ -65,15 +65,18 @@
   }
   
   .carousel {
-    width: 900px;
+    max-width: 900px; /*changed to max-width*/
     display: flex;
     justify-content: center;    /* Change this */
     flex-wrap: wrap;
     flex-direction: row-reverse;
     align-items: center;
+    position: relative;
   }
   
-  .carousel-item {
+  .carousel .carousel-item, 
+  .carousel .carousel-item--hiden{
+    display: none;
     border: 1px solid #fff;
     width: 300px;
     height: 300px;
