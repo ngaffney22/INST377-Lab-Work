@@ -89,6 +89,10 @@
   .carousel .carousel-item--visable{
       display: block;
   }
+  .carousel .carousel-actions{
+      display: flex;
+      justify-content: space-between;
+  }
   .footer {
     display: flex;
     justify-content: space-between;
