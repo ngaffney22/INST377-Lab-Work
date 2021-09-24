@@ -82,18 +82,16 @@
     height: 300px;
   }
   .carousel .carousel-item img{
-      display: flex;
       width: 100%;
       max-width: 900px;
       height: auto;
-      order: 2;
   }
   .carousel .carousel-item--visable{
       display: block;
   }
   .carousel .carousel-actions{
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
   }
   .footer {
     display: flex;
