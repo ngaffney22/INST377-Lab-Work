@@ -89,7 +89,7 @@
   .carousel .carousel-item--visable{
       display: block;
   }
-  .carousel .carousel-actions{
+  .carousel .carousel-item .carousel-actions{
       display: flex;
       justify-content: space-between;
   }
