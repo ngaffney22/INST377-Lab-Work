@@ -64,7 +64,7 @@
     justify-content: center;
   }
   
-  .photo-grid {
+  .carousel {
     width: 900px;
     display: flex;
     justify-content: center;    /* Change this */
@@ -73,7 +73,7 @@
     align-items: center;
   }
   
-  .photo-grid-item {
+  .carousel-item {
     border: 1px solid #fff;
     width: 300px;
     height: 300px;
