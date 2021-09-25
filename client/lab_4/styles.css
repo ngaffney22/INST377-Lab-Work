@@ -94,6 +94,29 @@
       display: flex;
       justify-content: space-between;
   }
+  .button-prev{
+    /*display: flex;*/
+    height: 20px;
+    width: 45px;
+    align-self: center;
+    border: none;
+    border-radius: 4px;
+  }
+  .button-prev:hover{
+    background-color: turquoise;
+  }
+  .button-next{
+    /*display: flex;*/
+    height: 20px;
+    width: 45px;
+    align-self: center;
+    border: none;
+    border-radius: 4px;
+  }
+  .button-next:hover{
+    background-color: turquoise;
+  }
+
   .footer {
     display: flex;
     justify-content: space-between;
