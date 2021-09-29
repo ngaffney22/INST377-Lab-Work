@@ -13,6 +13,7 @@ let isGoingLeft = false
 let isGoingRight = false
 let leftTimerId
 let rightTimerId 
+let score = 0
 
 
 function createDoodler(){
@@ -53,6 +54,16 @@ function movePlatforms(){
             platform.bottom -= 4
             let visual = platform.visual
             visual.style.bottom = platform.bottom + 'px'
+
+            if (platform.bottom < 10){
+                let firstPlatform = platforms[0].visual
+                firstPlatform.classList.remove('platform')
+                platforms.shift()
+                score++
+                console.log(platforms)
+                let newPlatform = new Platform(600)
+                platforms.push(newPlatform)
+            }
         })
     }
 }
@@ -96,6 +107,10 @@ function fall(){
 }
 
 function moveLeft(){
+    if (isGoingRight){
+        clearInterval(rightTimerId)
+        isGoingRight = false
+    }
     isGoingLeft = true
     leftTimerId = setInterval(function () {
         if (doodlerLeftSpace >= 0){
@@ -103,17 +118,28 @@ function moveLeft(){
             doodler.style.left = doodlerLeftSpace + 'px'
         }else moveRight()
         
-    }, 30)
+    }, 20)
 }
 
 function moveRight(){
+    if (isGoingLeft){
+        clearInterval(leftTimerId)
+        isGoingLeft = false
+    }
     isGoingRight = true
     rightTimerId = setInterval(function () {
         if (doodlerLeftSpace <= 340){
             doodlerLeftSpace += 5
             doodler.style.left = doodlerLeftSpace + 'px'
         }
-    },30)
+    },20)
+}
+
+function moveStraight(){
+    isGoingRight = false
+    isGoingLeft = false
+    clearInterval(rightTimerId)
+    clearInterval(leftTimerId)
 }
 
 function control(e){
@@ -122,14 +148,21 @@ function control(e){
     } else if (e.key === "ArrowRight"){
         moveRight()
     } else if (e.key === "ArrowUp"){
-        //moveStraight
+        moveStraight()
     }
 }
 
 function gameOver(){
+    console.log('game over')
     isGameOver = true
+    while (grid.firstChild){
+        grid.removeChild(grid.firstChild)
+    }
+    grid.innerHTML = score
     clearInterval(upTimerId)
     clearInterval(downTimerId)
+    clearInterval(leftTimerId)
+    clearInterval(rightTimerId)
 }
 
 function start(){
@@ -138,7 +171,7 @@ function start(){
     createDoodler()
     setInterval(movePlatforms, 30)
     jump()
-    document.addEventListener('keyup', control)
+    document.addEventListener('keydown', control)
 }
 //attach to button later
 start()

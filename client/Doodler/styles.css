@@ -3,6 +3,8 @@
     height: 600px;
     background-image: url('./images/background.png');
     position: relative;
+    font-size: 200px;
+    text-align: center;
 }
 
 .doodler {
