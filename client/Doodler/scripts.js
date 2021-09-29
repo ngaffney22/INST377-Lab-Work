@@ -9,6 +9,10 @@ platforms = []
 let upTimerId
 let downTimerId
 let isJumping = false
+let isGoingLeft = false
+let isGoingRight = false
+let leftTimerId
+let rightTimerId 
 
 
 function createDoodler(){
@@ -91,11 +95,32 @@ function fall(){
     }, 30)
 }
 
+function moveLeft(){
+    isGoingLeft = true
+    leftTimerId = setInterval(function () {
+        if (doodlerLeftSpace >= 0){
+            doodlerLeftSpace -= 5 
+            doodler.style.left = doodlerLeftSpace + 'px'
+        }else moveRight()
+        
+    }, 30)
+}
+
+function moveRight(){
+    isGoingRight = true
+    rightTimerId = setInterval(function () {
+        if (doodlerLeftSpace <= 340){
+            doodlerLeftSpace += 5
+            doodler.style.left = doodlerLeftSpace + 'px'
+        }
+    },30)
+}
+
 function control(e){
     if (e.key === "ArrowLeft"){
-        //moveLeft
+        moveLeft()
     } else if (e.key === "ArrowRight"){
-        //moveRight
+        moveRight()
     } else if (e.key === "ArrowUp"){
         //moveStraight
     }
@@ -113,6 +138,7 @@ function start(){
     createDoodler()
     setInterval(movePlatforms, 30)
     jump()
+    document.addEventListener('keyup', control)
 }
 //attach to button later
 start()
