@@ -11,8 +11,8 @@ module.exports = {
     sourceType: 'module'
   },
   rules: {
-    'linebreak-style': [1, 'unix'],
     'newline-per-chained-call': [0],
+    'linebreak-style': [0],
     semi: [1, 'always'],
     'eol-last': [0],
     'comma-spacing': 1,

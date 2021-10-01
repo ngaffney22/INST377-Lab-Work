@@ -15,6 +15,18 @@ let leftTimerId;
 let rightTimerId;
 let score = 0;
 
+function gameOver() {
+  console.log('game over');
+  isGameOver = true;
+  while (grid.firstChild) {
+    grid.removeChild(grid.firstChild);
+  }
+  grid.innerHTML = score;
+  clearInterval(upTimerId);
+  clearInterval(downTimerId);
+  clearInterval(leftTimerId);
+  clearInterval(rightTimerId);
+}
 function createDoodler() {
   grid.appendChild(doodler);
   doodler.classList.add('doodler');
@@ -65,19 +77,6 @@ function movePlatforms() {
     });
   }
 }
-
-function jump() {
-  clearInterval(downTimerId);
-  isJumping = true;
-  upTimerId = setInterval(() => {
-    doodlerBottomSpace += 20;
-    doodler.style.bottom = `${doodlerBottomSpace}px`;
-    if (doodlerBottomSpace > startPoint + 200) {
-      fall();
-    }
-  }, 30);
-}
-
 function fall() {
   clearInterval(upTimerId);
   isJumping = false;
@@ -102,19 +101,16 @@ function fall() {
     });
   }, 30);
 }
-
-function moveLeft() {
-  if (isGoingRight) {
-    clearInterval(rightTimerId);
-    isGoingRight = false;
-  }
-  isGoingLeft = true;
-  leftTimerId = setInterval(() => {
-    if (doodlerLeftSpace >= 0) {
-      doodlerLeftSpace -= 5;
-      doodler.style.left = `${doodlerLeftSpace}px`;
-    } else moveRight();
-  }, 20);
+function jump() {
+  clearInterval(downTimerId);
+  isJumping = true;
+  upTimerId = setInterval(() => {
+    doodlerBottomSpace += 20;
+    doodler.style.bottom = `${doodlerBottomSpace}px`;
+    if (doodlerBottomSpace > startPoint + 200) {
+      fall();
+    }
+  }, 30);
 }
 
 function moveRight() {
@@ -128,6 +124,19 @@ function moveRight() {
       doodlerLeftSpace += 5;
       doodler.style.left = `${doodlerLeftSpace}px`;
     }
+  }, 20);
+}
+function moveLeft() {
+  if (isGoingRight) {
+    clearInterval(rightTimerId);
+    isGoingRight = false;
+  }
+  isGoingLeft = true;
+  leftTimerId = setInterval(() => {
+    if (doodlerLeftSpace >= 0) {
+      doodlerLeftSpace -= 5;
+      doodler.style.left = `${doodlerLeftSpace}px`;
+    } else moveRight();
   }, 20);
 }
 
@@ -146,19 +155,6 @@ function control(e) {
   } else if (e.key === 'ArrowUp') {
     moveStraight();
   }
-}
-
-function gameOver() {
-  console.log('game over');
-  isGameOver = true;
-  while (grid.firstChild) {
-    grid.removeChild(grid.firstChild);
-  }
-  grid.innerHTML = score;
-  clearInterval(upTimerId);
-  clearInterval(downTimerId);
-  clearInterval(leftTimerId);
-  clearInterval(rightTimerId);
 }
 
 function start() {
