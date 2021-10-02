@@ -25,24 +25,21 @@ body {
   max-width: 960px;
   margin-top: 25px;
 }
-.header{
-  text-align: center;
-  background-color: #F6F7F8;
+
+.header {
+  text-align: left;
+  background-color: goldenrod;
   border: 1px solid #D6D9DC;
   border-radius: 3px;
-  
+
   width: 80%;
   margin: 40px 0;
   padding: 50px;
 }
-.rand-form {
-  background-color: #F6F7F8;
-  border: 1px solid #D6D9DC;
-  border-radius: 3px;
-  
-  width: 80%;
-  padding: 50px;
-  margin: 0 0 40px 0;
+
+.header h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 .form-row {
   margin-bottom: 40px;
@@ -58,9 +55,86 @@ body {
   border-radius: 3px;
   width: 100%;
   padding: 7px;
-  font-size: 14px;
+  font-size: 10px;
+}
+.input-container{
+  display: flex;
+  justify-content: center;
+  background-color: cornsilk;
+  align-content: center;
+}
+
+.style-box{
+  display: flex;
+  align-items: center;
 }
 
 .form-row label {
   margin-bottom: 15px;
+}
+@media only screen and (min-width: 700px) {
+  .speaker-form-header,
+  .speaker-form {
+    width: 600px;
+  }
+  .form-row {
+    /*flex-direction: row;*/
+    align-items: flex-start; /* To avoid stretching */
+    margin-bottom: 20px;
+  }
+  .form-row input[type='text'] {
+    width: 250px;
+    height: initial;
+  }
+  .form-row label {
+    text-align: right;
+    color: black;
+    width: 120px;
+    margin-top: 7px;
+    padding-right: 20px;
+  }
+}
+.legacy-form-row {
+  border: none;
+  margin-bottom: 40px;
+}
+
+.legacy-form-row legend {
+  margin-bottom: 15px;
+}
+
+.legacy-form-row .radio-label {
+  display: block;
+  font-size: 14px;
+  padding: 0 20px 0 10px;
+}
+
+.legacy-form-row input[type='radio'] {
+  margin-top: 2px;
+}
+  
+.legacy-form-row .radio-label,
+.legacy-form-row input[type='radio'] {
+  float: left;
+}
+.form-row button {
+  font-size: 16px;
+  font-weight: bold;
+
+  color: #FFFFFF;
+  background-color: #5995DA;
+
+  border: none;
+  border-radius: 3px;
+
+  padding: 10px 40px;
+  cursor: pointer;
+}
+
+.form-row button:hover {
+  background-color: royalblue;
+}
+
+.form-row button:active {
+  background-color: #407FC7;
 }

@@ -8,15 +8,46 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class='header'>
-        <h1>Nick's Lab 5</h1>
-    </header>
-    <form action='' method='get' class='rand-form'>
-        <div class='form-row'>
-            <label for='full-name'>Name</label>
-            <input id='full-name' name='full-name' type='text'/>
-          </div>
-    </form>
-    
+    <div class="column is-full">
+        <header class='header'>
+            <h1>Nick's Lab 5</h1>
+        </header>
+    </div>
+    <div class="column is-one-quarter">
+        <div class="input-container">
+            <form action='' method='get' class='rand-form'>
+                <div class='form-row'>
+                    <label for='full-name'>First Name</label>
+                    <input id='full-name' name='full-name' type='text'/>
+                </div>
+                <div class='form-row'>
+                    <label for='full-name'>Food preference</label>
+                    <input id='full-name' name='full-name' type='text'/>
+                </div>
+                <fieldset class='legacy-form-row'>
+                    <legend>Vegies or Vegan?</legend>
+                    <input id='talk-type-1'
+                            name='talk-type'
+                            type='radio'
+                            value='Yes' />
+                    <label for='talk-type-1' class='radio-label'>Yes</label>
+                    <input id='talk-type-2'
+                            name='talk-type'
+                            type='radio'
+                            value='No'
+                            checked />
+                    <label for='talk-type-2' class='radio-label'>No</label>
+                    </fieldset>
+                    <div class='form-row'>
+                    <button>Submit</button>
+                    </div>
+            </form>
+        </div>
+        <div class="columns is-vcentered">
+            <div class="column is-three-quarters input-container">
+                <p class="bd-notification is-primary">This will be something in two weeks</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
