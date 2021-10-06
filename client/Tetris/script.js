@@ -80,6 +80,20 @@ function moveDown() {
 // make tetromino move down every second
 timerId = setInterval(moveDown, 800)
 
+// assign functions to keycodes
+function control(e) {
+  if (e.keyCode === 37) {
+    moveLeft()
+  } else if (e.keyCode === 38) {
+    // rotate()
+  } else if (e.keyCode === 39) {
+     moveRight()
+  } else if (e.keyCode === 40) {
+     moveDown().
+  }
+}
+document.addEventListener('keydown', control)
+
 // freeze function 
 function freeze() {
   if (current.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
@@ -90,4 +104,23 @@ function freeze() {
     currentPosition = 4
     draw()
   }
+}
+
+// move the tetromino left, unless it hits the edge of the grid
+function moveLeft() {
+  undraw()
+  const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0)
+
+  if(!isAtLeftEdge) currentPosition -= 1
+
+  if(current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
+    currentPosition +=1
+  }
+  
+  draw()
+}
+
+// Move Tetromino right 
+function moveRight() {
+  undraw()
 }
