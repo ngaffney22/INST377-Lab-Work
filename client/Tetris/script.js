@@ -46,20 +46,48 @@ const iTetromino = [
   [1, width + 1, width * 2 + 1, width * 3 + 1],
   [width, width + 1, width + 2, width + 3]
 ];
-const theTetominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino];
+const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino];
 
 let currentPosition = 4
 let currentRotation = 0
 
 // randomly select a Tetromino
-let random = Math.floor(Math.random()*theTetominoes.length)
-let current = theTetominoes[random][currentRotation];
+let random = Math.floor(Math.random()*theTetrominoes.length)
+let current = theTetrominoes[random][currentRotation];
 
-// draw the first rotation in the first tetromino
+// draw the tetromino
 function draw() {
   current.forEach((index) => {
     squares[currentPosition + index].classList.add('tetromino');
   });
 }
-console.log(theTetominoes)
-draw()
+console.log(theTetrominoes)
+// undraw the tetromino
+function undraw() {
+  current.forEach(index => {
+    squares[currentPosition + index].classList.remove('tetromino')
+  })
+}
+
+// move down function
+function moveDown() {
+  undraw()
+  currentPosition += width
+  draw()
+  freeze()
+}
+
+// make tetromino move down every second
+timerId = setInterval(moveDown, 800)
+
+// freeze function 
+function freeze() {
+  if (current.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
+    current.forEach(index => squares[currentPosition + index].classList.add('taken'))
+    // start a new tetromino
+    random = Math.floor(Math.random() * theTetrominoes.length)
+    current = theTetrominoes[random][currentRotation]
+    currentPosition = 4
+    draw()
+  }
+}
