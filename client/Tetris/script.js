@@ -13,8 +13,8 @@ const colors = [
   'purple',
   'green',
   'blue'
-];
-
+]
+  
 // The Tetrominoes
 const lTetromino = [
   [1, width + 1, width * 2 + 1, 2],
@@ -63,6 +63,7 @@ let current = theTetrominoes[random][currentRotation];
 function draw() {
   current.forEach((index) => {
     squares[currentPosition + index].classList.add('tetromino');
+    squares[currentPosition + index].style.backgroundColor = colors[random]
   });
 }
 console.log(theTetrominoes);
@@ -70,6 +71,7 @@ console.log(theTetrominoes);
 function undraw() {
   current.forEach(index => {
     squares[currentPosition + index].classList.remove('tetromino');
+    squares[currentPosition + index].style.backgroundColor = ''
   });
 }
 
@@ -80,9 +82,6 @@ function moveDown() {
   draw();
   freeze();
 }
-
-// make tetromino move down every second
-// timerId = setInterval(moveDown, 800);
 
 // assign functions to keycodes
 function control(e) {
@@ -118,9 +117,7 @@ function freeze() {
 function moveLeft() {
   undraw();
   const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0)
-
   if(!isAtLeftEdge) currentPosition -= 1
-
   if(current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
     currentPosition +=1
   }
@@ -131,13 +128,35 @@ function moveLeft() {
 function moveRight() {
   undraw();
   const isRightEdge = current.some(index => (currentPosition + index) % width === width - 1);
-
   if (!isRightEdge) currentPosition += 2;
-
   if (current.some(index => squares[currentPosition + index].classList.contains('taken'))) { 
     currentPosition -= 1;
   }
   draw();
+}
+// FIX ROTATION OF TETROMINOS A THE EDGE 
+function isAtRight() {
+  return current.some(index=> (currentPosition + index + 1) % width === 0)  
+}
+
+function isAtLeft() {
+  return current.some(index=> (currentPosition + index) % width === 0)
+}
+
+function checkRotatedPosition(P) {
+  P = P || currentPosition 
+  if ((P+1) % width < 4) {
+    if (isAtRight()) {
+      currentPosition += 1 
+      checkRotatedPosition(P) 
+    }
+  }
+  else if (P % width > 5) {
+    if (isAtLeft()) {
+      currentPosition -= 1
+      checkRotatedPosition(P)
+    }
+  }
 }
 
 // rotate the tetromino 
@@ -170,9 +189,11 @@ function displayShape() {
   // remove any trace of tetromino from the grid
   displaySquares.forEach(square => {
     square.classList.remove('tetromino')
+    square.style.backgroundColor = ''
   })
   upNextTetrominoes[nextRandom].forEach( index => {
     displaySquares[displayIndex + index].classList.add('tetromino')
+    displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
   })
 }
 
@@ -200,6 +221,7 @@ function addScore() {
       row.forEach(index => {
         squares[index].classList.remove('taken')
         squares[index].classList.remove('tetromino')
+        squares[index].style.backgroundColor = ''
       })
       const squaresRemoved = squares.splice(i, width)
       squares = squaresRemoved.concat(squares)
@@ -207,12 +229,10 @@ function addScore() {
     }
   }
 }
-
-
 // game over function 
 function gameOver() {
   if (current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
-    scoreDisplay.innerHTML = 'End Game'
+    scoreDisplay.innerHTML = `${score}  Game Over`
     clearInterval(timerId)
   }
 }
