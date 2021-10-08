@@ -4,17 +4,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab 6</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma-rtl.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <script>
-        const endpoint = "https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json";
-        const results = [];
-
-        fetch(endpoint)
-            .then(blob => blob.json)
-            .then(data => console.log(data));
-
-
-    </script>
+    <div class="field">
+        <label class="label">Assignment 2</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Text input">
+        </div>
+    </div>
+    <ul class="suggestions"></ul>
+    
+    <script src="script.js"></script>
 </body>
 </html>
