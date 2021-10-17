@@ -4,3 +4,14 @@
 .label{
     font-size: xx-large;
 }
+.field {
+    display: flex;
+}
+.box {
+    flex-direction: column;
+    align-self: flex-end;
+}
+#mapid { 
+    height: 220px;
+    width: 220px;
+}
