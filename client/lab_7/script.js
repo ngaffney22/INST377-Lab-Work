@@ -43,7 +43,7 @@ async function windowActions() {
       if (p.hasOwnProperty('geocoded_column_1')) {
         const point = p.geocoded_column_1
         const latlog = point.coordinates
-        const marker = latlog.reverse()
+        const markers = latlog.reverse()
         markers.push(L.marker(markers).addTo(mymap))
         console.log(markers)
       }
@@ -61,7 +61,7 @@ async function windowActions() {
   const searchInput = document.querySelector('.input');
   const suggestions = document.querySelector('.suggestions');
   searchInput.addEventListener('change', displayMatches);
-  document.querySelector('button').addEventListener('click', (evt) => { displayMatches(evt) });
+  // document.querySelector('button').addEventListener('click', (evt) => { displayMatches(evt) });
 }
 
 window.onload = windowActions;
