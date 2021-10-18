@@ -1,8 +1,8 @@
 async function windowActions() {
   const endpoint = 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json';
+  
   const request = await fetch(endpoint)
   const cities = await request.json()
-  //const accessToken = 'pk.eyJ1IjoibmpnYWZmbmV5IiwiYSI6ImNrdXZmaHU0cTY3cDEzMG1hd3ZoN3RkbTAifQ.4SQUMvS57EWb7rrXbrdQPA'
   
   function findMatches(wordToMatch, cities) {
     return cities.filter(place => {
@@ -30,28 +30,20 @@ async function windowActions() {
     accessToken: 'pk.eyJ1IjoibmpnYWZmbmV5IiwiYSI6ImNrdXZmaHU0cTY3cDEzMG1hd3ZoN3RkbTAifQ.4SQUMvS57EWb7rrXbrdQPA'
   
   }).addTo(mymap);
-  function centerLeaflet(map, marker) {
-    let latLngs = [marker.getLatLng()];
-    let markerBounds = L.latLngBounds(latLngs);
-    map.fitBounds(markerBounds);
-  }
-  //centerLeaflet()
 
-  const searchInput = document.querySelector('.input');
-  const suggestions = document.querySelector('.suggestions');
-  searchInput.addEventListener('change', displayMatches);
-  document.getElementById('button').addEventListener('click', (evt) => { displayMatches(evt) });
-
+  
+ 
   let markers = [];
   
   function displayMatches(event) {
+    console.log(event.target.value);
     const matchArray = findMatches(event.target.value, cities)
     const limitedList = matchArray.slice(0, 5);
     limitedList.forEach(p => {
       if (p.hasOwnProperty('geocoded_column_1')) {
         const point = p.geocoded_column_1
         const latlog = point.coordinates
-        const markers = latlog.reverse()
+        const marker = latlog.reverse()
         markers.push(L.marker(markers).addTo(mymap))
         console.log(markers)
       }
@@ -66,6 +58,11 @@ async function windowActions() {
     suggestions.innerHTML = html;
   
   }
+  const searchInput = document.querySelector('.input');
+  const suggestions = document.querySelector('.suggestions');
+  searchInput.addEventListener('change', displayMatches);
+  document.querySelector('button').addEventListener('click', (evt) => { displayMatches(evt) });
 }
+
 window.onload = windowActions;
   
