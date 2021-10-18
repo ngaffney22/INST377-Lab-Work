@@ -6,13 +6,19 @@ async function windowActions() {
   
   function findMatches(wordToMatch, cities) {
     return cities.filter(place => {
-      // match the results to the search
-              
+      
       const regex = new RegExp(wordToMatch, 'gi');
       return place.zip.match(regex)
     });
-  
-  }
+
+  } 
+  /* inputbox.addEventListener('input', (event)) => {
+    console.log(event.target.value);
+    const filteredList = cities.filter(item, index) => {
+      const zipcode = event.target.value;
+      return item.zip === zipcode;
+    }
+  } */
   
   const mymap = L.map('mapid').setView([38.989, -76.93], 11);
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -34,13 +40,14 @@ async function windowActions() {
   const searchInput = document.querySelector('.input');
   const suggestions = document.querySelector('.suggestions');
   searchInput.addEventListener('change', displayMatches);
-  searchInput.addEventListener('keyup', (evt) => { displayMatches(evt) });
+  document.getElementById('button').addEventListener('click', (evt) => { displayMatches(evt) });
 
   let markers = [];
   
   function displayMatches(event) {
     const matchArray = findMatches(event.target.value, cities)
-    matchArray.forEach(p => {
+    const limitedList = matchArray.slice(0, 5);
+    limitedList.forEach(p => {
       if (p.hasOwnProperty('geocoded_column_1')) {
         const point = p.geocoded_column_1
         const latlog = point.coordinates
@@ -49,13 +56,10 @@ async function windowActions() {
         console.log(markers)
       }
     })
-    const html = matchArray.map(place => `
-                  <ul>
+    const html = limitedList.map(place => `
+                  <ul class = "food-place">
                   <li><div class="name">${place.name}</div></li>
-                  <div class="category">${place.category}</div>
                   <div class="address">${place.address_line_1}</div>
-                  <div class="city">${place.city}</div>
-                  <div class="zip">${place.zip}</div>
                   </ul>
                   <br>
                `).join('');
