@@ -33,18 +33,18 @@ async function windowActions() {
 
   
  
-  let markers = [];
+  //let markers = [];
   
-  function displayMatches(event) {
-    console.log(event.target.value);
-    const matchArray = findMatches(event.target.value, cities)
+  function displayMatches(evt) {
+    console.log(evt.target.value);
+    const matchArray = findMatches(evt.target.value, cities)
     const limitedList = matchArray.slice(0, 5);
     limitedList.forEach(p => {
       if (p.hasOwnProperty('geocoded_column_1')) {
         const point = p.geocoded_column_1
         const latlog = point.coordinates
         const markers = latlog.reverse()
-        markers.push(L.marker(markers).addTo(mymap))
+        L.marker(markers).addTo(mymap)
         console.log(markers)
       }
       
@@ -62,6 +62,7 @@ async function windowActions() {
   const searchInput = document.querySelector('.input');
   const suggestions = document.querySelector('.suggestions');
   searchInput.addEventListener('change', displayMatches);
+  searchInput.addEventListener('keyup', (evt) => {displayMatches(evt)})
   // document.querySelector('button').addEventListener('click', (evt) => { displayMatches(evt) });
 }
 
